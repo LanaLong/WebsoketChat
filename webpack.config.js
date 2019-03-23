@@ -29,7 +29,7 @@ module.exports = {
     plugins: [
         new ExtractTextPlugin('styles.css'),
         new HtmlPlugin({
-            title: 'Webpack Env',
+            title: 'Realtime Chat',
             template: 'index.hbs',
         }),
         new CleanWebpackPlugin(['dist'])

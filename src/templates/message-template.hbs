@@ -1,0 +1,15 @@
+{{#each item}}
+<li class="message-list__item">
+    <img src="{{ imgSrc }}">
+    <p class="message-list__userName">{{ userName }}
+        <span class="timePoint">{{ date }}</span>
+    </p>
+    <p class="message-list__text">{{ message }}</p>
+</li>
+{{/each}}
+
+
+
+{{!-- {{#each list}}
+<div class="name">{{ name }} {{ last_name }}</div>
+{{/each}} --}}

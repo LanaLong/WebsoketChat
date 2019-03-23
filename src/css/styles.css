@@ -1,0 +1,110 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Fira-Sans, sans-serif;
+}
+.wrapper {
+    display: flex;
+}
+.side-bar {
+    height: 100vh;
+    width: 20%;
+    background-color: #F19B76;
+    color: #fff;
+    padding: 10px;
+}
+
+.user-name {
+    padding-left: 20px;
+    font-size: 1em;
+}
+
+.container {
+    position: relative;
+}
+.auth-block, .message-send {
+    background-color: #F4F3F5;
+}
+
+.auth-block {
+    display: none;
+    position: absolute;
+    width: 350px;
+    left: 50px;
+    top: 20px;
+    border-radius: 10px;
+    padding: 14px 12px;
+}
+
+.auth-block__label {
+    color: #454446;
+    font-size: 1em;
+}
+
+.auth-block__form {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    color: #cac9ca;
+    border-radius: 10px;
+    padding: 18px 12px;
+    margin-top: 12px;
+}
+
+.auth-block__form input, 
+.auth-block__form button, 
+.message-send input, 
+.message-send button {
+    border-radius: 25px;
+    box-shadow: none;
+}
+.auth-block__form input,
+.message-send input {
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    border: 1px solid #cac9ca;
+}
+
+.auth-block__form input::placeholder,
+.message-send input::placeholder {
+    font-size: 0.8rem;
+}
+
+.auth-block__form button {
+    width: 50%;
+    font-size: 0.9rem;
+    background-color: #F19B76;
+    justify-content: flex-end;
+    color: #fff;
+    padding: 6px;
+    margin-top: 4px;
+    margin-left: auto;
+    border: none;
+}
+
+.message-send {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 12px;;
+}
+
+.message-send button {
+    font-size: 0.9rem;
+    background-color: #F19B76;
+    color: #fff;
+    padding: 6px 25px;
+    border: none;
+}
+
+
+.message-send input {
+    padding: 8px 16px;
+    width: 40%;
+}
+
+.message-list {
+    padding: 20px;
+}

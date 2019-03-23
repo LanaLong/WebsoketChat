@@ -8,3 +8,7 @@
 * `npm run build` - собрать проект в папку `build`
 
 * npm i acorn -D
+
+* -----------------------------
+npm install mongodb soket.io --save
+
