@@ -1,10 +1,19 @@
-// console.log(qqq);
-// import render from './templates/friends.hbs';
 import './css/styles.css';
+import io from 'socket.io-client';
+// import { getCurrentDate } from '../src/js/getCurrentDate';
 
-function createReview(item) {
-    let templateFn = require('./templates/message-template.hbs');
-    return templateFn({
-        item: item
+$(function () {
+    var socket = io.connect('http://localhost:3000');
+
+    $('form').submit(function (e) {
+        e.preventDefault(); 
+        socket.emit('chat message', $('#msg').val());
+        $('#msg').val('');
+
+        return false;
     });
-}
+
+    socket.on('chat message', function (msg) {
+        $('#messages').append($('<li>').text(msg));
+    });
+});
