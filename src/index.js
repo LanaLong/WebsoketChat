@@ -25,16 +25,16 @@ const imgLoad = document.querySelector('#imgLoad');
 avatar.addEventListener('click', function() {
     imgLoad.style.display = 'block';
 });
-input.addEventListener('focus', function () { input.classList.add('has-focus'); });
-input.addEventListener('blur', function () { input.classList.remove('has-focus'); });
+inputfile.addEventListener('focus', function () { inputfile.classList.add('has-focus'); });
+inputfile.addEventListener('blur', function () { inputfile.classList.remove('has-focus'); });
 
-var input = document.querySelectorAll('.inputfile');
+var inputfile = document.querySelectorAll('#inputfile');
 
 Array.prototype.forEach.call(inputs, function (input) {
-    var label = input.nextElementSibling,
+    var label = inputfile.nextElementSibling,
         labelVal = label.innerHTML;
 
-    input.addEventListener('change', function (e) {
+    inputfile.addEventListener('change', function (e) {
         var fileName = '';
 
     //     if (this.files & amp;& amp; this.files.length > 1 ) {
@@ -50,6 +50,25 @@ Array.prototype.forEach.call(inputs, function (input) {
     }
 });
 });
+
+// smelukov File API
+const fileReader = new FileReader();
+
+inputfile.addEventListener('change', function (e) {
+    const [file] = e.target.files;
+
+    if(file) {
+        if (file.size > 512 * 1024) {
+            alert('Размер файла не может быть более 512 Kb');
+        } else {
+            fileReader.readAsDataURL(file);
+        }
+    }
+});
+
+fileReader.addEventListener('load', function() {
+    avatar.src = fileReader.result;
+})
 
 // udate history
 // socket.on("update messages", function (msg) {

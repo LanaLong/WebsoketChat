@@ -39,8 +39,12 @@
             <div class="inputfile__form">
                 {{!-- <input type="file" name="file" id="file" data-multiple-caption="{count} files selected" multiple /> --}}
 
-                <input type="file" class="inputfile">
-                <label for="file">Загрузите изображение</label>
+                <input type="file" id="inputfile" class="inputfile">
+                <label for="inputfile" class="file-label text-center">
+                    <div class="label-image glyphicon glyphicon-upload"></div>
+                    <div class="label-text">Загрузите изображение</div>
+                </label>
+
                 <button type="submit" class="auth-button">Отмена</button>
                 <button type="submit" class="auth-button">Загрузить</button>
             </div>
