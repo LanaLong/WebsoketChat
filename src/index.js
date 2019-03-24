@@ -3,6 +3,14 @@
 import './css/styles.css';
 import io from 'socket.io-client';
 
+const avatar = document.querySelector('#avatar');
+const imgLoad = document.querySelector('#imgLoad');
+const inputfile = document.querySelector('#inputfile');
+
+avatar.addEventListener('click', function() { imgLoad.style.display = 'block'; });
+// inputfile.addEventListener('focus', function () { inputfile.classList.add('has-focus'); });
+// inputfile.addEventListener('blur', function () { inputfile.classList.remove('has-focus'); });
+
 $(function () {
     var socket = io.connect('http://localhost:3000');
 
@@ -19,39 +27,28 @@ $(function () {
     });
 });
 
-const avatar = document.querySelector('#avatar');
-const imgLoad = document.querySelector('#imgLoad');
+// Array.prototype.forEach.call(inputs, function (input) {
+//     var label = inputfile.nextElementSibling,
+//         labelVal = label.innerHTML;
 
-avatar.addEventListener('click', function() {
-    imgLoad.style.display = 'block';
-});
-inputfile.addEventListener('focus', function () { inputfile.classList.add('has-focus'); });
-inputfile.addEventListener('blur', function () { inputfile.classList.remove('has-focus'); });
+//     inputfile.addEventListener('change', function (e) {
+//         var fileName = '';
 
-var inputfile = document.querySelectorAll('#inputfile');
+//         if (this.files & this.files.length > 1 ) {
+//         fileName = (this.getAttribute('data-multiple-caption') || '').replace('{count}', this.files.length);
+//     } else {
+//         fileName = e.target.value.split('\\').pop();
+//     }
 
-Array.prototype.forEach.call(inputs, function (input) {
-    var label = inputfile.nextElementSibling,
-        labelVal = label.innerHTML;
+//     if (fileName) {
+//         label.querySelector('span').innerHTML = fileName;
+//     } else {
+//         label.innerHTML = labelVal;
+//     }
+// });
+// });
 
-    inputfile.addEventListener('change', function (e) {
-        var fileName = '';
-
-    //     if (this.files & amp;& amp; this.files.length > 1 ) {
-    //     fileName = (this.getAttribute('data-multiple-caption') || '').replace('{count}', this.files.length);
-    // } else {
-        fileName = e.target.value.split('\\').pop();
-    // }
-
-    if (fileName) {
-        label.querySelector('span').innerHTML = fileName;
-    } else {
-        label.innerHTML = labelVal;
-    }
-});
-});
-
-// smelukov File API
+// smelukov File API //////////////////////////
 const fileReader = new FileReader();
 
 inputfile.addEventListener('change', function (e) {
@@ -68,7 +65,9 @@ inputfile.addEventListener('change', function (e) {
 
 fileReader.addEventListener('load', function() {
     avatar.src = fileReader.result;
+    imgLoad.style.display = 'none';
 })
+// ///////////////////////////////////////////////////
 
 // udate history
 // socket.on("update messages", function (msg) {
