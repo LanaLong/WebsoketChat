@@ -15,6 +15,9 @@ html {
     color: #fff;
     padding: 10px;
 }
+.user-block {
+    display: flex;
+}
 
 .user-name {
     padding-left: 20px;
@@ -24,11 +27,14 @@ html {
 .container {
     position: relative;
 }
-.auth-block, .message-send {
+.auth-block, 
+.message-send,
+.img-load  {
     background-color: #F4F3F5;
 }
 
-.auth-block {
+.auth-block,
+.img-load {
     display: none;
     position: absolute;
     width: 350px;
@@ -37,6 +43,10 @@ html {
     border-radius: 10px;
     padding: 14px 12px;
 }
+.auth-block {
+    display: none;
+}
+
 
 .auth-block__label {
     color: #454446;
@@ -107,4 +117,85 @@ html {
 
 .message-list {
     padding: 20px;
+}
+
+.img-circul {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: none;
+}
+
+/* .inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.inputfile + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    background-color: rgba(0,0,0, .1);
+    display: inline-block;
+    cursor: pointer;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: rgba(255, 0, 0, .1);
+}
+.inputfile:focus + label,
+.inputfile.has-focus + label {
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+}
+.inputfile + label * {
+	pointer-events: none;
+} */
+
+/* https://benmarshall.me/styling-file-inputs/ */
+    [type="file"] {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  white-space: nowrap;
+  width: 1px;  
+}
+
+[type="file"] + label {
+    background-color: rgba(0, 0, 0, .1);
+    border-radius: 1rem;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 400;
+    height: 10rem;
+    width: 285px;
+    line-height: 4rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin: 12px 0;
+    transition: background-color 0.3s;
+}
+ 
+[type="file"]:focus + label,
+[type="file"] + label:hover {
+    background-color: rgba(255, 0, 0, .1);
+}
+ 
+[type="file"]:focus + label {
+  outline: 1px dotted #000;
+  outline: -webkit-focus-ring-color auto 5px;
+}
+
+[type="file"] + label * {
+  pointer-events: none;
 }

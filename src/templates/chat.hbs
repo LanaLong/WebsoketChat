@@ -3,7 +3,7 @@
 
         <div class="side-bar">
             <div class="user-block">
-                <img src="" class="avatar">
+                <img src="" class="img-circul" id="avatar">
                 <div class="user-name">Name</div>
             </div>
 
@@ -28,6 +28,21 @@
                 <input type="text" class="input-name" placeholder="ФИО">
                 <input type="text" class="input-nik" placeholder="Ник">
                 <button type="submit" class="auth-button">Войти</button>
+            </div>
+        </div>
+
+        <div class="img-load" id="imgLoad">
+            <div class="img-load__header">
+                <span class="img-load__label">Загрузить изображение</span>
+            </div>
+
+            <div class="inputfile__form">
+                {{!-- <input type="file" name="file" id="file" data-multiple-caption="{count} files selected" multiple /> --}}
+
+                <input type="file" class="inputfile">
+                <label for="file">Загрузите изображение</label>
+                <button type="submit" class="auth-button">Отмена</button>
+                <button type="submit" class="auth-button">Загрузить</button>
             </div>
         </div>
 
