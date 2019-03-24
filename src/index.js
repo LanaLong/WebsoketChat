@@ -9,31 +9,35 @@ const sendButton = document.querySelector('#sendButton');
 const messageContainer = document.querySelector('#messageContainer');
 
 
-soket.addEventListener('message', function(event) {
-    addMessage(event.data);
-}); 
+// soket.addEventListener('message', function(event) {
+//     addMessage(event.data);
+// }); 
 
-soket.addEventListener('error', function(event) {
-    alert('Cоединение закрыто или не может быть открыто');
-});
+// soket.addEventListener('error', function(event) {
+//     alert('Cоединение закрыто или не может быть открыто');
+// });
 
-function addMessage(message) {
-    const messageItem = document.createElement('li');
+// function addMessage(message) {
+//     const messageItem = document.createElement('li');
 
-    messageItem.className = 'list-group-item';
-    messageItem.textContent = message;
+//     messageItem.className = 'list-group-item';
+//     messageItem.textContent = message;
 
-    messageContainer.appendChild(messageItem);
-    messageContainer.scrollTop = messageContainer.scrollHeight;
-}
+//     messageContainer.appendChild(messageItem);
+//     messageContainer.scrollTop = messageContainer.scrollHeight;
+// }
 
-function sendMessage() {
-        soket.send(messageText.value);
-        messageText.value = '';
-}
+// function sendMessage() {
+//         soket.send(messageText.value);
+//         messageText.value = '';
+// }
 
-sendButton.addEventListener('click', sendMessage);
-messageText.addEventListener('change', sendMessage);
+
+
+
+
+// sendButton.addEventListener('click', sendMessage);
+// messageText.addEventListener('change', sendMessage);
 
 
 const avatar = document.querySelector('#avatar');

@@ -1,27 +1,32 @@
-var app = require('express')();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+let WebSocketServer = require('ws').Server,
+    wss = new WebSocketServer({ port: 9999 });
 
-app.set('view engine', 'hbs');
-app.set('views', 'src');
+let connections = [];
 
-app.get('/', function (req, res) {
-    res.render('index.hbs');
-});
+// var app = require('express')();
+// var http = require('http').Server(app);
+// var io = require('socket.io')(http);
 
-io.on('connection', function (socket) {
-    io.emit('some event', { for: 'everyone' });
-    socket.on('disconnect', function () {
-        console.log('user disconnected');
-    });
-});
+// app.set('view engine', 'hbs');
+// app.set('views', 'src');
 
-io.on('connection', function (socket) {
-    socket.on('chat message', function (msg) {
-        io.emit('chat message', msg);
-    });
-});
+// app.get('/', function (req, res) {
+//     res.render('index.hbs');
+// });
 
-http.listen(3000, function () {
-    console.log('listening on *:3000');
-});
+// io.on('connection', function (socket) {
+//     io.emit('some event', { for: 'everyone' });
+//     socket.on('disconnect', function () {
+//         console.log('user disconnected');
+//     });
+// });
+
+// io.on('connection', function (socket) {
+//     socket.on('chat message', function (msg) {
+//         io.emit('chat message', msg);
+//     });
+// });
+
+// http.listen(3000, function () {
+//     console.log('listening on *:3000');
+// });

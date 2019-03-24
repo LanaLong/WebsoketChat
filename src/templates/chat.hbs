@@ -3,7 +3,7 @@
 
         <div class="side-bar">
             <div class="user-block">
-                <img src="" class="img-circul" id="avatar">
+                <img src="./src/img/noImg.png" class="img-circul" id="avatar">
                 <div class="user-name">Name</div>
             </div>
 
@@ -31,24 +31,28 @@
             </div>
         </div>
 
+        <!-- Форма загрузки фотографии -->
         <div class="img-load" id="imgLoad">
+
             <div class="img-load__header">
-                <span class="img-load__label">Загрузить изображение</span>
+                <span class="img-load__label">Загрузка фото</span>
             </div>
 
             <div class="inputfile__form">
-                {{!-- <input type="file" name="file" id="file" data-multiple-caption="{count} files selected" multiple /> --}}
-
                 <input type="file" id="inputfile" class="inputfile">
                 <label for="inputfile" class="file-label text-center">
                     <div class="label-image glyphicon glyphicon-upload"></div>
-                    <div class="label-text">Загрузите изображение</div>
+                    <div class="label-text">Загрузите или перетащите сюда изображение</div>
+                    <img src="" id="drop-zone" data-role="drop-zone">
                 </label>
-
-                {{!-- <button type="submit" class="auth-button">Отмена</button>
-                <button type="submit" class="auth-button">Загрузить</button> --}}
+                <input type="button" id="resetButton" value="Отмена">
+                <input type="submit" id="sendPhotoButton" value="Загрузить">
             </div>
+
         </div>
+        <!-- /Форма загрузки фотографии -->
+
+
 
         <ul class="list-group" id="messageContainer">
         <span>message</span>
