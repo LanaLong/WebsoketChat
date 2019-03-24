@@ -50,17 +50,17 @@
             </div>
         </div>
 
-        <ul class="message-list" id="message-list">
+        <ul class="list-group" id="messageContainer">
         <span>message</span>
         </ul>
-        <ul id="messages"></ul>
+        {{!-- <ul id="messages"></ul>
         <form action="">
             <input id="msg" autocomplete="off" /><button>Send</button>
-        </form>
+        </form> --}}
 
         <div class="message-send">
-                <input type="text" class="message-send__input" placeholder="Введите сообщение">
-                <button type="submit" class="message-send__button">Отправить</button>
+                <input type="text" id="messageText" class="message-send__input" placeholder="Введите сообщение">
+                <button type="submit" id="sendButton" class="message-send__button">Отправить</button>
 
         </div>
 

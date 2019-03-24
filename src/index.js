@@ -1,7 +1,40 @@
 // var fs = require('fs');
 // import { getCurrentDate } from '../src/js/getCurrentDate';
 import './css/styles.css';
-import io from 'socket.io-client';
+// import io from 'socket.io-client';
+
+// const soket = new WebSoket('ws://localhost:8080');
+const messageText = document.querySelector('#messageText');
+const sendButton = document.querySelector('#sendButton');
+const messageContainer = document.querySelector('#messageContainer');
+
+
+soket.addEventListener('message', function(event) {
+    addMessage(event.data);
+}); 
+
+soket.addEventListener('error', function(event) {
+    alert('Cоединение закрыто или не может быть открыто');
+});
+
+function addMessage(message) {
+    const messageItem = document.createElement('li');
+
+    messageItem.className = 'list-group-item';
+    messageItem.textContent = message;
+
+    messageContainer.appendChild(messageItem);
+    messageContainer.scrollTop = messageContainer.scrollHeight;
+}
+
+function sendMessage() {
+        soket.send(messageText.value);
+        messageText.value = '';
+}
+
+sendButton.addEventListener('click', sendMessage);
+messageText.addEventListener('change', sendMessage);
+
 
 const avatar = document.querySelector('#avatar');
 const imgLoad = document.querySelector('#imgLoad');
@@ -11,21 +44,21 @@ avatar.addEventListener('click', function() { imgLoad.style.display = 'block'; }
 // inputfile.addEventListener('focus', function () { inputfile.classList.add('has-focus'); });
 // inputfile.addEventListener('blur', function () { inputfile.classList.remove('has-focus'); });
 
-$(function () {
-    var socket = io.connect('http://localhost:3000');
+// $(function () {
+//     var socket = io.connect('http://localhost:3000');
 
-    $('form').submit(function (e) {
-        e.preventDefault(); 
-        socket.emit('chat message', $('#msg').val());
-        $('#msg').val('');
+//     $('form').submit(function (e) {
+//         e.preventDefault(); 
+//         socket.emit('chat message', $('#msg').val());
+//         $('#msg').val('');
 
-        return false;
-    });
+//         return false;
+//     });
 
-    socket.on('chat message', function (msg) {
-        $('#messages').append($('<li>').text(msg));
-    });
-});
+//     socket.on('chat message', function (msg) {
+//         $('#messages').append($('<li>').text(msg));
+//     });
+// });
 
 // Array.prototype.forEach.call(inputs, function (input) {
 //     var label = inputfile.nextElementSibling,
